@@ -16,6 +16,10 @@ body {
     padding: 0;
 }
 
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
 .container {
     align-items: center;
     display: flex;
