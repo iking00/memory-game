@@ -158,7 +158,7 @@ const timer = (function() {
 		counter += 1;
 		const minutes = Math.floor(counter / 60);
 		let seconds = '0' + counter % 60;
-		seconds = seconds.slice(0,2);
+		seconds = seconds.slice(-2);
 		$('.time').text(minutes + ':' + seconds);
 	}, 1000);
 })();
