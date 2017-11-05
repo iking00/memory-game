@@ -43,6 +43,15 @@ function initGameBoard(){
 	}
 }
 
+/**
+*@description 
+*/
+function openCard(event){
+	$(this).addClass('show');
+}
+
 $(function(){
 	initGameBoard();
+	//open card when clicked;filter out cards with .show as they already open
+	$('.game-board').on('click', '.game-card:not(.show)', openCard);
 });
