@@ -79,6 +79,7 @@ function matchCards(openCards){
 */
 function gameOver(){
 	//TO DO: create and display result modal
+	clearInterval(timer);
 }
 
 /**
@@ -128,7 +129,7 @@ const cardsOpened = (function() {
 *@description Count number of moves
 */
 const movesMade = (function() {
-	var counter = 0;
+	let counter = 0;
 	return {
 		addMove: function(){
 			counter += 1;
@@ -146,6 +147,20 @@ const movesMade = (function() {
 			return counter;
 		}
 	}
+})();
+
+/**
+*@description track and display time taken
+*/
+const timer = (function() {
+	let counter = 0;
+	return setInterval(function(){
+		counter += 1;
+		const minutes = Math.floor(counter / 60);
+		let seconds = '0' + counter % 60;
+		seconds = seconds.slice(0,2);
+		$('.time').text(minutes + ':' + seconds);
+	}, 1000);
 })();
 
 $(function(){
