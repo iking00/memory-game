@@ -133,6 +133,11 @@ const movesMade = (function() {
 		addMove: function(){
 			counter += 1;
 			$('.moves').text(counter);
+			if (counter === 17){
+				$('.stars li:nth-child(1)').hide();
+			} else if (counter === 25) {
+				$('.stars li:nth-child(2)').hide();
+			}
 		},
 		reset: function(){
 			counter = 0;
