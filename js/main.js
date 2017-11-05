@@ -42,6 +42,11 @@ function appendCards(){
 	}
 }
 
+function attachCardEvent(){
+	//open card when clicked;filter out cards with .show as they already open
+	$('.game-board').on('click', '.game-card:not(.show)', openCard);
+}
+
 function cardsMatched(){
 	$('.open').addClass('match').removeClass('open');
 }
@@ -49,6 +54,7 @@ function cardsMatched(){
 function cardsNotMatched(){
 	$('.open').removeClass('open show');
 	cardsOpened.emptyCards();
+	attachCardEvent();
 }
 
 /**
@@ -62,6 +68,8 @@ function matchCards(openCards){
 	if (cardOne === cardTwo){
 		cardsMatched();
 	} else {
+		//disable events to prevent extra click during timeout
+		$('.game-board').off('click');
 		setTimeout(cardsNotMatched,1000);
 	}
 }
@@ -106,6 +114,5 @@ const cardsOpened = (function() {
 
 $(function(){
 	appendCards();
-	//open card when clicked;filter out cards with .show as they already open
-	$('.game-board').on('click', '.game-card:not(.show)', openCard);
+	attachCardEvent();
 });
