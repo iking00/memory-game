@@ -26,3 +26,24 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
+/*
+ * Styles for game board
+ */
+
+.game-board {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 660px;
+}
+
+.game-card {
+	height: 125px;
+	width: 125px;
+	display: flex;
+	justify-content: center;
+	background-color: black;
+	cursor: pointer;
+}
