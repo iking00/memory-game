@@ -1,0 +1,27 @@
+@media screen and (min-width: 599px) {
+
+	.game-board {
+		min-height: 550px;
+		width: 550px;
+	}
+
+	.game-card {
+		height: 125px;
+		width: 125px;
+	}
+
+}
+
+@media screen and (min-width: 750px) {
+
+	.game-board {
+		min-height: 700px;
+		width: 700px;
+	}
+
+	.game-card {
+		height: 150px;
+		width: 150px;
+	}
+
+}
