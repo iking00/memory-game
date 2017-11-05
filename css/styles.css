@@ -57,16 +57,46 @@ body {
  * Styles for Card events
  */
 
- .game-card.open {
- 	background-color: blue;
- 	cursor: default;
- }
+.game-card.open {
+	background-color: blue;
+	cursor: default;
+}
 
- .game-card.match {
-  	background-color: green;
- 	cursor: default;	
- }
+.game-card.match {
+	background-color: green;
+	cursor: default;	
+}
 
- .game-card.show {
- 	font-size: 33px;
- }
+.game-card.show {
+	font-size: 33px;
+}
+
+/*
+* Styles for Game Info
+*/
+.game-info{
+	margin: 0;
+	margin-bottom: 10px;
+	width: 330px;
+}
+
+.stars {
+	margin: 0 5px 0 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.stars li {
+	display: inline-block;
+	list-style: none;
+}
+
+.timer {
+	float: right;
+	margin: 0 10px 0 0
+}
+
+.reset {
+	float: right;
+	cursor: pointer;
+}
