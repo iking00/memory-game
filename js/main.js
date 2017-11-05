@@ -44,7 +44,8 @@ function initGameBoard(){
 }
 
 /**
-*@description 
+*@description Show card symbol on click event
+*@param {object} event - Click event object
 */
 function openCard(event){
 	$(this).addClass('show');
