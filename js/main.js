@@ -87,6 +87,7 @@ function openCard(event){
 		openCards = cardsOpened.getCards();
 		matchCards(openCards);
 	}
+	moves.addMove();
 }
 
 /**
@@ -108,6 +109,24 @@ const cardsOpened = (function() {
 		waitingMatch: function(){
 			const openLen = openCards.length;
 			return openLen % 2 === 0;
+		}
+	}
+})();
+
+/**
+*@description Count number of moves
+*/
+const moves = (function() {
+	var counter = 0;
+	return {
+		addMove: function(){
+			counter += 1;
+		},
+		reset: function(){
+			counter = 0;
+		},
+		value: function(){
+			return counter;
 		}
 	}
 })();
