@@ -103,6 +103,15 @@ function openCard(event){
 }
 
 /**
+*@description Reset game board
+*/
+function resetGameBoard(){
+	$('.game-board').empty();
+	appendCards();
+	movesMade.reset();
+	$('.stars li').show();
+}
+/**
 *@description Closure to store, empty and retrieve open cards
 */
 const cardsOpened = (function() {
@@ -142,6 +151,7 @@ const movesMade = (function() {
 		},
 		reset: function(){
 			counter = 0;
+			$('.moves').text('0');
 		},
 		value: function(){
 			return counter;
