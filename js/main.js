@@ -47,8 +47,27 @@ function appendCards(){
 *@param {object} event - Click event object
 */
 function openCard(event){
-	$(this).addClass('show');
+	$(this).addClass('open show');
 }
+
+/**
+*@description Closure to store, empty and retrieve open cards
+*/
+const cardsOpened = (function() {
+	let openCards = [];
+	return {
+		addCard: function(icon){
+			openCards.push(icon);
+		},
+		emptyCards: function(){
+			openCards.pop();
+			openCards.pop();
+		},
+		getCards: function(){
+			return openCards;
+		}
+	}
+})();
 
 $(function(){
 	appendCards();
