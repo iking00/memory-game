@@ -42,10 +42,31 @@ body {
 }
 
 .game-card {
+	align-items: center;
+	color: #fff;
 	height: 75px;
 	width: 75px;
 	display: flex;
+	font-size: 0;
 	justify-content: center;
 	background-color: black;
 	cursor: pointer;
 }
+
+/*
+ * Styles for Card events
+ */
+
+ .game-card.open {
+ 	background-color: blue;
+ 	cursor: default;
+ }
+
+ .game-card.match {
+  	background-color: green;
+ 	cursor: default;	
+ }
+
+ .game-card.show {
+ 	font-size: 33px;
+ }
