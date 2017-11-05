@@ -42,12 +42,43 @@ function appendCards(){
 	}
 }
 
+function cardsMatched(){
+	$('.open').addClass('match').removeClass('open');
+}
+
+function cardsNotMatched(){
+	$('.open').removeClass('open show');
+	cardsOpened.emptyCards();
+}
+
 /**
-*@description Show card symbol on click event
+*@desciprtion Test if open cards match
+*@param {array} openCards - Array of open cards
+*/
+function matchCards(openCards){
+	const lenOpenCards = openCards.length;
+	const cardOne = openCards[lenOpenCards - 2];
+	const cardTwo = openCards[lenOpenCards - 1];
+	if (cardOne === cardTwo){
+		cardsMatched();
+	} else {
+		setTimeout(cardsNotMatched,1000);
+	}
+}
+
+/**
+*@description Show card symbol on click event and test match
 *@param {object} event - Click event object
 */
 function openCard(event){
 	$(this).addClass('open show');
+	const thisClass = $(this).children('i').attr('class');
+	cardsOpened.addCard(thisClass);
+	const boolMatch = cardsOpened.waitingMatch();
+	if (boolMatch) {
+		openCards = cardsOpened.getCards();
+		matchCards(openCards);
+	}
 }
 
 /**
@@ -65,6 +96,10 @@ const cardsOpened = (function() {
 		},
 		getCards: function(){
 			return openCards;
+		},
+		waitingMatch: function(){
+			const openLen = openCards.length;
+			return openLen % 2 === 0;
 		}
 	}
 })();
