@@ -94,7 +94,7 @@ function openCard(event){
 	if (boolMatch) {
 		matchCards(openCards);
 	}
-	moves.addMove();
+	movesMade.addMove();
 	lenOpen = openCards.length;
 	if (lenOpen === 16) {
 		gameOver();
@@ -127,11 +127,12 @@ const cardsOpened = (function() {
 /**
 *@description Count number of moves
 */
-const moves = (function() {
+const movesMade = (function() {
 	var counter = 0;
 	return {
 		addMove: function(){
 			counter += 1;
+			$('.moves').text(counter);
 		},
 		reset: function(){
 			counter = 0;
