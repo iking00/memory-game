@@ -79,7 +79,7 @@ function matchCards(openCards){
 */
 function gameOver(){
 	//TO DO: create and display result modal
-	clearInterval(timer);
+	timer.stop();
 }
 
 /**
@@ -110,6 +110,8 @@ function resetGameBoard(){
 	appendCards();
 	movesMade.reset();
 	$('.stars li').show();
+	timer.stop();
+	timer.start();
 }
 /**
 *@description Closure to store, empty and retrieve open cards
@@ -164,16 +166,27 @@ const movesMade = (function() {
 */
 const timer = (function() {
 	let counter = 0;
-	return setInterval(function(){
+	function displayTime() {
 		counter += 1;
-		const minutes = Math.floor(counter / 60);
+		let minutes = Math.floor(counter / 60);
 		let seconds = '0' + counter % 60;
 		seconds = seconds.slice(-2);
-		$('.time').text(minutes + ':' + seconds);
-	}, 1000);
+		$('.time').text(minutes + ':' + seconds);		
+	}
+	let interval = undefined;
+	return {
+		start: function() {
+			counter = 0;
+			interval = setInterval(displayTime, 1000);
+		},
+		stop: function() {
+			clearInterval(interval);
+		}
+	}	
 })();
 
 $(function(){
 	appendCards();
 	attachCardEvent();
+	timer.start();
 });
