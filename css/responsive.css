@@ -1,6 +1,7 @@
 @media screen and (min-width: 599px) {
 
 	.game-board {
+		padding: 20px;
 		min-height: 550px;
 		width: 550px;
 	}
@@ -15,6 +16,7 @@
 @media screen and (min-width: 750px) {
 
 	.game-board {
+		padding: 30px;
 		min-height: 700px;
 		width: 700px;
 	}
