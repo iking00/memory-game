@@ -152,3 +152,10 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+/*
+ * Style for result table
+ */
+.table-result td {
+	padding: 10px;
+}
