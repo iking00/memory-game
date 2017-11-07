@@ -121,7 +121,7 @@ body {
     background-color: #fefefe;
     margin: 10% auto;
     border: 1px solid #888;
-    width: 50%;
+    width: 75%;
 }
 
 .modal-header {
@@ -137,6 +137,28 @@ body {
 
 .modal-body {
 	padding: 2%;
+}
+
+.modal-footer {
+	width: 100%;
+	background-color: #6fdaa4;
+	padding: 2%;
+	color: #fff;
+	overflow: auto;
+}
+
+.modal-footer .modal-reset {
+	background-color: #1f619a;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	float: right;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+
+.modal-footer .modal-reset:hover {
+	background-color: #5b5d65;
 }
 
 .close {

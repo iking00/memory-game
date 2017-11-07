@@ -1,3 +1,12 @@
+function closeModal() {
+	$('#modalWon').hide();
+}
+
+function modalRestart() {
+	resetGameBoard();
+	$('#modalWon').hide();
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -79,6 +88,7 @@ function matchCards(openCards){
 */
 function gameOver(){
 	//TO DO: create and display result modal
+	$('#modalWon').show();
 	timer.stop();
 }
 
