@@ -83,7 +83,7 @@ body {
 }
 
 .game-card.no-match {
-	background-color: red;
+	background-color: #9e6060;
 	cursor: default;
 	animation: shake .2s;
 }
