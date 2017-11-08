@@ -124,6 +124,7 @@ function resetGameBoard(){
 	cardsOpened.reset();
 	$('.stars li').show();
 	timer.stop();
+	$('.time').text('0:00');
 	timer.start();
 }
 /**
