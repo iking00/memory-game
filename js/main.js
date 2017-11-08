@@ -2,6 +2,9 @@ function closeModal() {
 	$('#modalWon').hide();
 }
 
+/**
+* @description Reset gameboard and hige modal to play again
+*/
 function modalRestart() {
 	resetGameBoard();
 	$('#modalWon').hide();
@@ -51,15 +54,24 @@ function appendCards() {
 	}
 }
 
+/**
+* @description Attach event to handle the matching of cards
+*/
 function attachCardEvent() {
-	//open card when clicked;filter out cards with .show as they already open
+	//open card when clicked;filter out cards with .show as they are already open
 	$('.game-board').on('click', '.game-card:not(.show)', openCard);
 }
 
+/**
+* @description After matching cards opened, update style and keep them open
+*/
 function cardsMatched() {
 	$('.open').addClass('match').removeClass('open');
 }
 
+/**
+* @description After non-matching cards opened, hide them and remove from open cards
+*/
 function cardsNotMatched() {
 	$('.no-match').removeClass('show no-match');
 	cardsOpened.emptyCards();
@@ -67,8 +79,8 @@ function cardsNotMatched() {
 }
 
 /**
-*@desciprtion Test if open cards match
-*@param {array} openCards - Array of open cards
+* @desciprtion Test if open cards match
+* @param {array} openCards - Array of open cards
 */
 function matchCards(openCards) {
 	const lenOpenCards = openCards.length;
@@ -85,7 +97,7 @@ function matchCards(openCards) {
 }
 
 /**
-*@description All cards match display result modal
+* @description All cards match display result modal
 */
 function gameOver() {
 	//TO DO: create and display result modal
@@ -94,8 +106,8 @@ function gameOver() {
 }
 
 /**
-*@description Show card symbol on click event and test match status
-*@param {object} event - Click event object
+* @description Show card symbol on click event and test match status
+* @param {object} event - Click event object
 */
 function openCard(event) {
 	$(this).addClass('open');
@@ -115,7 +127,7 @@ function openCard(event) {
 }
 
 /**
-*@description Reset game board
+* @description Reset game board
 */
 function resetGameBoard() {
 	$('.game-board').empty();
@@ -128,7 +140,7 @@ function resetGameBoard() {
 	timer.start();
 }
 /**
-*@description Closure to store, empty and retrieve open cards
+* @description Closure to store, empty and retrieve open cards
 */
 const cardsOpened = (function() {
 	let openCards = [];
@@ -154,7 +166,7 @@ const cardsOpened = (function() {
 })();
 
 /**
-*@description Count number of moves
+* @description Count number of moves
 */
 const movesMade = (function() {
 	let counter = 0;
@@ -179,7 +191,7 @@ const movesMade = (function() {
 })();
 
 /**
-*@description track and display time taken
+* @description track and display time taken
 */
 const timer = (function() {
 	let counter = 0;
@@ -202,6 +214,9 @@ const timer = (function() {
 	}	
 })();
 
+/**
+* @description On Ready shuffle and add cards; add click event;start timer
+*/
 $(function() {
 	appendCards();
 	attachCardEvent();
