@@ -25,7 +25,7 @@ function shuffle(array) {
 /**
 * @description Traverses array and appends li with icons 
 */
-function appendCards(){
+function appendCards() {
 	const icons = [
 		'fa-anchor',
 		'fa-anchor',
@@ -51,16 +51,16 @@ function appendCards(){
 	}
 }
 
-function attachCardEvent(){
+function attachCardEvent() {
 	//open card when clicked;filter out cards with .show as they already open
 	$('.game-board').on('click', '.game-card:not(.show)', openCard);
 }
 
-function cardsMatched(){
+function cardsMatched() {
 	$('.open').addClass('match').removeClass('open');
 }
 
-function cardsNotMatched(){
+function cardsNotMatched() {
 	$('.no-match').removeClass('show no-match');
 	cardsOpened.emptyCards();
 	attachCardEvent();
@@ -70,7 +70,7 @@ function cardsNotMatched(){
 *@desciprtion Test if open cards match
 *@param {array} openCards - Array of open cards
 */
-function matchCards(openCards){
+function matchCards(openCards) {
 	const lenOpenCards = openCards.length;
 	const cardOne = openCards[lenOpenCards - 2];
 	const cardTwo = openCards[lenOpenCards - 1];
@@ -87,7 +87,7 @@ function matchCards(openCards){
 /**
 *@description All cards match display result modal
 */
-function gameOver(){
+function gameOver() {
 	//TO DO: create and display result modal
 	$('#modalWon').show();
 	timer.stop();
@@ -97,7 +97,7 @@ function gameOver(){
 *@description Show card symbol on click event and test match status
 *@param {object} event - Click event object
 */
-function openCard(event){
+function openCard(event) {
 	$(this).addClass('open');
 	$(this).addClass('show');
 	const thisClass = $(this).children('i').attr('class');
@@ -117,7 +117,7 @@ function openCard(event){
 /**
 *@description Reset game board
 */
-function resetGameBoard(){
+function resetGameBoard() {
 	$('.game-board').empty();
 	appendCards();
 	movesMade.reset();
@@ -133,17 +133,17 @@ function resetGameBoard(){
 const cardsOpened = (function() {
 	let openCards = [];
 	return {
-		addCard: function(icon){
+		addCard: function(icon) {
 			openCards.push(icon);
 		},
-		emptyCards: function(){
+		emptyCards: function() {
 			openCards.pop();
 			openCards.pop();
 		},
-		getCards: function(){
+		getCards: function() {
 			return openCards;
 		},
-		reset: function(){
+		reset: function() {
 			openCards = [];
 		},
 		waitingMatch: function(){
@@ -159,7 +159,7 @@ const cardsOpened = (function() {
 const movesMade = (function() {
 	let counter = 0;
 	return {
-		addMove: function(){
+		addMove: function() {
 			counter += 1;
 			$('.moves').text(counter);
 			if (counter === 17){
@@ -168,11 +168,11 @@ const movesMade = (function() {
 				$('.stars li:nth-child(2)').hide();
 			}
 		},
-		reset: function(){
+		reset: function() {
 			counter = 0;
 			$('.moves').text('0');
 		},
-		value: function(){
+		value: function() {
 			return counter;
 		}
 	}
@@ -202,7 +202,7 @@ const timer = (function() {
 	}	
 })();
 
-$(function(){
+$(function() {
 	appendCards();
 	attachCardEvent();
 	timer.start();
