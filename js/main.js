@@ -202,7 +202,7 @@ const timer = (function() {
 		seconds = seconds.slice(-2);
 		$('.time').text(minutes + ':' + seconds);		
 	}
-	let interval = undefined;
+	let interval = setInterval(displayTime, 1000);
 	return {
 		start: function() {
 			counter = 0;
@@ -215,10 +215,9 @@ const timer = (function() {
 })();
 
 /**
-* @description On Ready shuffle and add cards; add click event;start timer
+* @description On Ready shuffle and add cards; add click event
 */
 $(function() {
 	appendCards();
 	attachCardEvent();
-	timer.start();
 });
