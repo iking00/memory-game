@@ -61,7 +61,7 @@ function cardsMatched(){
 }
 
 function cardsNotMatched(){
-	$('.open').removeClass('open show');
+	$('.no-match').removeClass('show no-match');
 	cardsOpened.emptyCards();
 	attachCardEvent();
 }
@@ -79,6 +79,7 @@ function matchCards(openCards){
 	} else {
 		//disable events to prevent extra click during timeout
 		$('.game-board').off('click');
+		$('.open').removeClass('open').addClass('no-match');
 		setTimeout(cardsNotMatched,1000);
 	}
 }
@@ -97,7 +98,8 @@ function gameOver(){
 *@param {object} event - Click event object
 */
 function openCard(event){
-	$(this).addClass('open show');
+	$(this).addClass('open');
+	$(this).addClass('show');
 	const thisClass = $(this).children('i').attr('class');
 	cardsOpened.addCard(thisClass);
 	openCards = cardsOpened.getCards();
