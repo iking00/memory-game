@@ -119,6 +119,7 @@ function resetGameBoard(){
 	$('.game-board').empty();
 	appendCards();
 	movesMade.reset();
+	cardsOpened.reset();
 	$('.stars li').show();
 	timer.stop();
 	timer.start();
@@ -138,6 +139,9 @@ const cardsOpened = (function() {
 		},
 		getCards: function(){
 			return openCards;
+		},
+		reset: function(){
+			openCards = [];
 		},
 		waitingMatch: function(){
 			const openLen = openCards.length;
