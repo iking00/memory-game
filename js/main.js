@@ -179,9 +179,9 @@ const movesMade = (function() {
 		addMove: function() {
 			counter += 1;
 			$('.moves').text(counter);
-			if (counter === 17){
+			if (counter === 10){
 				$('.stars li:nth-child(1)').hide();
-			} else if (counter === 25) {
+			} else if (counter === 15) {
 				$('.stars li:nth-child(2)').hide();
 			}
 		},
