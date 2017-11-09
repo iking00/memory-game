@@ -100,7 +100,6 @@ function matchCards(openCards) {
 * @description All cards match display result modal
 */
 function gameOver() {
-	//TO DO: create and display result modal
 	$('#modalWon').show();
 	timer.stop();
 }
@@ -118,8 +117,8 @@ function openCard(event) {
 	const boolMatch = cardsOpened.waitingMatch();
 	if (boolMatch) {
 		matchCards(openCards);
+		movesMade.addMove();
 	}
-	movesMade.addMove();
 	lenOpen = openCards.length;
 	if (lenOpen === 16) {
 		gameOver();
