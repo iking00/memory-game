@@ -100,8 +100,8 @@ function matchCards(openCards) {
 * @description All cards match display result modal
 */
 function gameOver() {
-	$('#modalWon').show();
 	timer.stop();
+	$('#modalWon').show();
 }
 
 /**
@@ -109,6 +109,10 @@ function gameOver() {
 * @param {object} event - Click event object
 */
 function openCard(event) {
+	const timerOn = timer.running();
+	if (!timerOn){
+		timer.start();
+	}
 	$(this).addClass('open');
 	$(this).addClass('show');
 	const thisClass = $(this).children('i').attr('class');
@@ -134,9 +138,11 @@ function resetGameBoard() {
 	movesMade.reset();
 	cardsOpened.reset();
 	$('.stars li').show();
-	timer.stop();
+	const timerOn = timer.running();
+	if (timerOn){
+		timer.stop();
+	}
 	$('.time').text('0:00');
-	timer.start();
 }
 /**
 * @description Closure to store, empty and retrieve open cards
@@ -201,14 +207,20 @@ const timer = (function() {
 		seconds = seconds.slice(-2);
 		$('.time').text(minutes + ':' + seconds);		
 	}
-	let interval = setInterval(displayTime, 1000);
+	let interval;
+	let timerOn = false;
 	return {
 		start: function() {
 			counter = 0;
 			interval = setInterval(displayTime, 1000);
+			timerOn = true;
 		},
 		stop: function() {
 			clearInterval(interval);
+			timerOn = false;
+		},
+		running: function() {
+			return timerOn;
 		}
 	}	
 })();
